@@ -2,7 +2,7 @@ FROM alpine:3.14
 MAINTAINER William Wang <william@10ln.com>
 
 RUN apk add --update bash ca-certificates openssl curl tzdata pngquant \
-    autoconf automake build-base libtool nasm wget \
+    autoconf automake build-base libtool nasm pkgconf wget \
  && ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime \
  && echo "Asia/Shanghai" > /etc/timezone
 
