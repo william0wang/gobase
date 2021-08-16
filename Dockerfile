@@ -11,7 +11,8 @@ wget https://github.com/mozilla/mozjpeg/archive/v3.3.1.tar.gz && \
 wget https://github.com/danielgtaylor/jpeg-archive/archive/v2.2.0.tar.gz && \
 tar -xzf v3.3.1.tar.gz && tar -xzf v2.2.0.tar.gz && cd mozjpeg-3.3.1 && \
 autoreconf -fiv && ./configure --with-jpeg8 && make && make install && \
-cd /usr/local/build/jpeg-archive-2.2.0 && make CFLAGS=-fcommon && make install && \
+cd /usr/local/build/jpeg-archive-2.2.0 && sed -i 's/-std=c99/-fcommon -std=c99/' Makefile && \
+make && make install && \
 rm -rf /usr/local/build
 
 ENV SHELL /bin/bash
